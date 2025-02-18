@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales et crédits - Plaisir et Gourmandise</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('boulangerie.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header avec une hauteur plus petite */
+        header {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('acceuil.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh; /* Hauteur réduite */
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem; /* Taille de police plus petite */
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInDown 1.5s forwards ease-out;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1.5s forwards ease-out;
+            animation-delay: 0.5s;
+        }
+
+        nav {
+            margin-top: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #FFCC00;
+            transform: scale(1.1);
+        }
+
+        /* Section d'introduction */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: -50px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeIn 2s forwards ease-in-out;
+            animation-delay: 1s;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #FFCC00;
+        }
+
+        /* Keyframes pour animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Plaisir et Gourmandise</h1>
+    <p>Découvrez l'authenticité de notre boulangerie artisanale à Brunoy.</p>
+    <nav>
+        <ul>
+            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="#">Produits</a></li>
+            <li><a href="#">Nos Services</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="Commande.html">Commande</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Mentions légales et crédits</h2>
+    
+    <h3>1. Propriété du site</h3>
+    <p>
+        Le site web <strong>Plaisir et Gourmandise</strong> a été conçu et développé par <strong>Levasseur Cyprien</strong>.
+        Vous pouvez consulter mon parcours professionnel sur mon <a href="https://www.linkedin.com/in/cyprien-levasseur-a04141231/" target="_blank">LinkedIn</a>.
+    </p>
+
+    <h3>2. Hébergement</h3>
+    <p>
+        Ce site est hébergé par <strong>IONOS</strong>, situé à l'adresse suivante :
+        <br> <strong>1&1 IONOS SARL</strong>, 7 Place de la Gare, 57200 Sarreguemines, France.
+        <br>
+        L’hébergeur IONOS assure la maintenance et la disponibilité du site web. En cas d'interruption temporaire ou d'incident technique, IONOS et le propriétaire du site ne sauraient être tenus responsables des désagréments causés.
+    </p>
+
+    <h3>3. Utilisation des images et des contenus</h3>
+    <p>
+        Toutes les images et illustrations présentes sur ce site sont soit :
+        <ul>
+            <li>Issues de banques d’images libres de droits,</li>
+            <li>Utilisées sous licence ou avec l'accord des propriétaires des droits.</li>
+        </ul>
+        Si vous avez des questions concernant les droits d’auteur sur une image ou une illustration présente sur ce site, 
+        ou si vous pensez que des droits ont été violés, veuillez nous contacter pour remédier à cette situation immédiatement.
+    </p>
+
+    <h3>4. Droits d'auteur et propriété intellectuelle</h3>
+    <p>
+        Le contenu de ce site, incluant les textes, images, graphismes, logos, icônes et autres éléments,
+        est protégé par les droits de propriété intellectuelle. Toute reproduction, distribution, modification,
+        retransmission ou publication de ces éléments sans autorisation écrite préalable est strictement interdite.
+    </p>
+
+    <h3>5. Protection des données personnelles</h3>
+    <p>
+        Ce site respecte votre vie privée et les réglementations en vigueur sur la protection des données personnelles, 
+        y compris le RGPD (Règlement Général sur la Protection des Données). Nous ne collectons aucune donnée personnelle 
+        sans votre consentement explicite. Pour toute question relative à la protection des données, veuillez nous contacter.
+    </p>
+
+    <h3>6. Responsabilité</h3>
+    <p>
+        Les informations présentes sur ce site sont fournies à titre informatif. Nous nous efforçons de les maintenir 
+        à jour et précises, mais aucune garantie n'est donnée quant à leur exactitude. L'éditeur du site ne peut être tenu 
+        responsable de toute erreur ou omission, ni des conséquences de l'utilisation de ces informations par les utilisateurs.
+    </p>
+
+    <h3>7. Contact</h3>
+    <p>
+        Pour toute question ou réclamation, vous pouvez contacter le créateur du site via son profil LinkedIn :
+        <a href="https://www.linkedin.com/in/cyprien-levasseur-a04141231/" target="_blank">Levasseur Cyprien</a>.
+    </p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Plaisir et Gourmandise. Conçu par <a href="https://www.linkedin.com/in/cyprien-levasseur-a04141231/" target="_blank">Levasseur Cyprien</a>. Tous droits réservés.</p>
+</footer>
+
+</body>
+
+</html>

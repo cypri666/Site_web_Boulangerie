@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaisir et Gourmandise</title>
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('acceuil.jpg') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            border-radius: 25px;
+            color: #333;
+        }
+        nav ul li a:hover {
+            background-color: #FFC300;
+        }
+        .carousel {
+            max-width: 1200px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 300px;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-item img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        .offers, .reviews {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .review-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .review-form input, .review-form textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .review-form button {
+            background-color: #FFD700;
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Plaisir et Gourmandise</h1>
+        <nav>
+            <ul>
+                <li><a href="Accueil.html">Accueil</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Commande.html">Commande</a></li>
+                <li><a href="mots_de_passe.html">Administrateur</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carousel des Produits -->
+    <section class="carousel">
+        <div class="carousel-inner" id="carouselInner"></div>
+    </section>
+
+    <!-- Section Offres -->
+    <section class="offers">
+        <h2>Nos Offres</h2>
+        <div id="offerList"></div>
+    </section>
+
+    <!-- Section Avis des Clients -->
+    <section class="reviews">
+        <h2>Avis des Clients</h2>
+        <div id="reviews-list"></div>
+
+        <!-- Formulaire pour laisser un avis -->
+        <div class="review-form">
+            <h3>Laissez un avis</h3>
+            <input type="text" id="reviewer-name" placeholder="Votre nom" required>
+            <select id="review-rating">
+                <option value="">Votre note</option>
+                <option value="1">★☆☆☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="4">★★★★☆</option>
+                <option value="5">★★★★★</option>
+            </select>
+            <textarea id="review-text" placeholder="Votre avis" rows="4"></textarea>
+            <button onclick="addReview()">Soumettre</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Plaisir et Gourmandise. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Charger les produits pour le carousel
+        function loadProducts() {
+            const products = JSON.parse(localStorage.getItem("products")) || [];
+            const carouselInner = document.getElementById("carouselInner");
+            carouselInner.innerHTML = products.map(product => `
+                <div class="carousel-item">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Charger les offres
+        function loadOffers() {
+            const offers = JSON.parse(localStorage.getItem("offers")) || [];
+            document.getElementById("offerList").innerHTML = offers.map(offer => `
+                <div class="offer-item">
+                    <h4>${offer.title}</h4>
+                    <p>${offer.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Charger les avis
+        function loadReviews() {
+            const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            document.getElementById("reviews-list").innerHTML = reviews.map(review => `
+                <div class="review-card">
+                    <p><strong>${review.reviewer}</strong> - ${"★".repeat(review.rating)}</p>
+                    <p>${review.text}</p>
+                </div>
+            `).join('');
+        }
+
+        // Ajouter un avis
+        function addReview() {
+            const name = document.getElementById("reviewer-name").value;
+            const rating = parseInt(document.getElementById("review-rating").value);
+            const text = document.getElementById("review-text").value;
+
+            if (name && rating && text) {
+                const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+                reviews.push({ reviewer: name, rating, text });
+                localStorage.setItem("reviews", JSON.stringify(reviews));
+                loadReviews();
+                document.getElementById("reviewer-name").value = '';
+                document.getElementById("review-rating").value = '';
+                document.getElementById("review-text").value = '';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadProducts();
+            loadOffers();
+            loadReviews();
+        });
+    </script>
+</body>
+</html>

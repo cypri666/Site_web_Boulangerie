@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Accès</title>
+    <style>
+        /* Styles Globaux */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Retiré l'image de fond */
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Utiliser toute la hauteur de la fenêtre */
+        }
+
+        /* Header avec image de fond */
+        header {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('acceuil.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            opacity: 1;
+        }
+
+        header p {
+            font-size: 1rem;
+            margin-top: 10px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            opacity: 1;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #fff;
+            padding: 8px 16px;
+            background-color: #FFD700;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #FFCC00;
+            transform: scale(1.1);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .password-container {
+            position: relative;
+            width: 300px; /* Taille du champ de mot de passe */
+        }
+
+        .password-container input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+            padding-right: 40px; /* Espace pour l'icône */
+            box-sizing: border-box;
+        }
+
+        .password-container img {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #FFCC00;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            margin-top: auto; /* Force le footer à rester en bas */
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #FFCC00;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Plaisir et Gourmandise</h1>
+        <p>Les artisans qui rendent chaque jour votre expérience unique</p>
+        <nav>
+            <ul>
+                <li><a href="Accueil.html">Accueil</a></li>
+                <li><a href="personnel.html">Le personnel</a></li>
+                <li><a href="produit.html">Produits</a></li>
+                <li><a href="propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Commande.html">Commande</a></li>
+                <li><a href="mots_de_passe.html">Administrateur</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Entrez le mot de passe">
+                <img src="eye.png" class="eye-icon" id="togglePassword" alt="Afficher/Masquer le mot de passe">
+            </div>
+            <br>
+            <button class="btn" onclick="checkPassword()">Accéder</button>
+            <p class="error" id="errorMessage">Mot de passe incorrect</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Plaisir et Gourmandise. Tous droits réservés. <a href="profil.html">Mentions légales et crédits</a></p>
+    </footer>
+
+    <script>
+        // Fonction pour afficher/masquer le mot de passe
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle le type de l'input entre "password" et "text"
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // Modifier l'icône (animation)
+            this.src = type === 'password' ? 'eye.png' : 'visibility.png';
+        });
+
+        // Vérification du mot de passe avec "Cyprien15"
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = "Cyprien15"; // Définir le mot de passe
+
+            if (password === correctPassword) {
+                localStorage.setItem('loggedIn', 'true');
+                window.location.href = "admin.html"; // Redirection vers la page admin
+            } else {
+                document.getElementById('errorMessage').style.display = 'block'; // Affiche un message d'erreur
+            }
+        }
+
+        // Si l'utilisateur est déjà connecté, rediriger vers admin.html directement
+        if (localStorage.getItem('loggedIn') === 'true') {
+            window.location.href = "admin.html";
+        }
+    </script>
+
+</body>
+
+</html>

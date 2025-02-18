@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Compte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles globaux */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body, html {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('acceuil.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin: 10px 0 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 500;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #ffbf00;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff9900;
+            transform: scale(1.1);
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+        }
+
+        .container h2 {
+            color: #333;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Fidelity Points Section */
+        .fidelity-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fdf6e3;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .fidelity-section h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .fidelity-points {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffbf00;
+            margin: 5px 0;
+        }
+
+        /* Account Info */
+        .account-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: -15px;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 10px;
+        }
+
+        .account-info a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1rem;
+        }
+
+        .account-info a:hover {
+            color: #ff9900;
+        }
+
+        /* Styles pour le dropdown panier */
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            top: 35px;
+            right: 0;
+            background-color: #fff;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .cart-dropdown.active {
+            display: block;
+        }
+
+        .cart-dropdown h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .cart-item {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .cart-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cart-item span {
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #FFCC00;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header avec Navigation -->
+    <header>
+        <h1>Plaisir et Gourmandise</h1>
+        <p>Les artisans qui rendent chaque jour votre expérience unique</p>
+        <nav>
+            <ul>
+                <li><a href="Accueil.html">Accueil</a></li>
+                <li><a href="personnel.html">Le personnel</a></li>
+                <li><a href="produit.html">Produits</a></li>
+                <li><a href="propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Informations Utilisateur -->
+    <div class="account-info">
+        <a href="contact.html">Contact</a>
+        <a href="compte.html">Mon Compte</a>
+        <div class="cart">
+            <a href="panier.html">
+                <img src="panier.png" alt="Panier" style="width: 25px; vertical-align: middle;">
+                <span>Panier : 0 articles</span>
+            </a>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <h4>Produits dans le panier</h4>
+                <div id="cart-items">
+                    <!-- Les produits ajoutés apparaîtront ici -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <h2 id="welcome-message">Bienvenue sur votre compte</h2>
+
+        <!-- Points de fidélité Section -->
+        <div class="fidelity-section">
+            <h3>Vos Points de Fidélité</h3>
+            <div class="fidelity-points" id="fidelity-points">0</div>
+            <p>Utilisez vos points pour obtenir des réductions exclusives !</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Plaisir et Gourmandise. Tous droits réservés. <a href="profil.html">Mentions légales et crédits</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const token = localStorage.getItem('token');
+            const welcomeMessage = document.getElementById('welcome-message');
+            const fidelityPoints = document.getElementById('fidelity-points');
+            const cart = document.querySelector('.cart');
+            const cartDropdown = document.getElementById('cart-dropdown');
+            const cartItems = document.getElementById('cart-items');
+
+            if (!token) {
+                alert("Vous n'êtes pas connecté. Veuillez vous connecter.");
+                window.location.href = 'formulaire.html';
+                return;
+            }
+
+            try {
+                const response = await fetch('/compte', {
+                    method: 'GET',
+                    headers: { 'Authorization': token }
+                });
+
+                if (!response.ok) throw new Error("Erreur réseau ou serveur");
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    welcomeMessage.textContent = `Bienvenue, ${result.firstname} ${result.lastname}`;
+                    fidelityPoints.textContent = result.points || 0; // Display fidelity points if available
+                } else {
+                    alert("Erreur: " + result.message);
+                    window.location.href = 'formulaire.html';
+                }
+            } catch (error) {
+                console.error("Erreur de connexion:", error);
+                alert("Impossible de récupérer les informations du compte. Veuillez réessayer.");
+            }
+
+            // Exemple de produits dans le panier
+            const productsInCart = [
+                { name: "Produit 1", quantity: 2 },
+                { name: "Produit 2", quantity: 1 },
+                { name: "Produit 3", quantity: 3 }
+            ];
+
+            // Afficher les produits dans le panier
+            function displayCartItems() {
+                cartItems.innerHTML = ''; // Effacer les anciens éléments pour éviter la duplication
+                productsInCart.forEach(product => {
+                    const item = document.createElement('div');
+                    item.classList.add('cart-item');
+                    item.innerHTML = `<span>${product.name}</span> - Quantité : ${product.quantity}`;
+                    cartItems.appendChild(item);
+                });
+            }
+
+            // Montrer le dropdown du panier au survol
+            cart.addEventListener('mouseenter', () => {
+                displayCartItems(); // Afficher les produits chaque fois qu'on survole
+                cartDropdown.classList.add('active');
+            });
+
+            // Masquer le dropdown du panier lorsqu'on quitte le survol
+            cart.addEventListener('mouseleave', () => {
+                cartDropdown.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

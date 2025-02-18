@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe - Plaisir et Gourmandise</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('acceuil.jpg') center/cover no-repeat;
+            height: 80vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-top: 15px;
+            max-width: 700px;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+            margin-top: 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            background-color: #FFD700;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        nav ul li a:hover {
+            background-color: #FFC300;
+            transform: scale(1.1);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonials h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .testimonial {
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid #FFD700;
+            padding-left: 10px;
+        }
+
+        .testimonial-form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-form input,
+        .testimonial-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .testimonial-form button {
+            background-color: #FFD700;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .testimonial-form button:hover {
+            background-color: #FFC300;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            clear: both;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #FFCC00;
+        }
+
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: #FFD700;
+            transition: color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #FFCC00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .team-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-member {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header avec Navigation -->
+    <header>
+        <h1>Plaisir et Gourmandise</h1>
+        <p>Les artisans qui rendent chaque jour votre expérience unique</p>
+        <nav>
+            <ul>
+                <li><a href="Accueil.html">Accueil</a></li>
+                <li><a href="personnel.html">Le personnel</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Commande.html">Commande</a></li>
+                <li><a href="mots_de_passe.html">Administrateur</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu Principal -->
+    <main>
+        <h2>Rencontrez Notre Équipe</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="personnel1.jpeg" alt="Mélanie">
+                <h3>Mélanie</h3>
+                <p>Gérante de la boulangerie</p>
+                <p>Sur cette photo, vous pouvez voir Mélanie, la gérante de notre boulangerie.</p>
+            </div>
+            <div class="team-member">
+                <img src="personnel2.jpeg" alt="Pascal">
+                <h3>Pascal</h3>
+                <p>Boulanger en chef</p>
+                <p>Voici Pascal, notre boulanger en chef, qui crée chaque jour de délicieux pains.</p>
+            </div>
+        </div>
+
+        <!-- Section Témoignages -->
+        <div class="testimonials">
+            <h3>Témoignages</h3>
+            <div id="testimonialList"></div>
+            <div class="testimonial-form">
+                <h4>Ajouter un Témoignage</h4>
+                <input type="text" id="reviewerName" placeholder="Votre nom" required>
+                <textarea id="reviewText" placeholder="Votre témoignage" rows="4" required></textarea>
+                <button onclick="addTestimonial()">Soumettre</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Réseaux Sociaux -->
+    <footer>
+        <p>&copy; 2024 Plaisir et Gourmandise. Tous droits réservés. <a href="profil.html">Mentions légales et crédits</a></p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/p/plaisir-et-gourmandise-brunoy-100023570413273/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        let testimonials = [];
+
+        // Fonction pour ajouter un témoignage
+        function addTestimonial() {
+            const name = document.getElementById('reviewerName').value;
+            const review = document.getElementById('reviewText').value;
+
+            if (!name || !review) {
+                alert("Veuillez remplir tous les champs.");
+                return;
+            }
+
+            const newTestimonial = {
+                id: Date.now(), // Unique ID pour chaque témoignage
+                name: name,
+                review: review
+            };
+
+            testimonials.push(newTestimonial);
+            renderTestimonials();
+            resetForm();
+        }
+
+        // Fonction pour afficher les témoignages
+        function renderTestimonials() {
+            const testimonialList = document.getElementById('testimonialList');
+            testimonialList.innerHTML = ''; // Clear current list
+
+            testimonials.forEach(testimonial => {
+                const testimonialElement = document.createElement('div');
+                testimonialElement.classList.add('testimonial');
+                testimonialElement.innerHTML = `
+                    <p>"${testimonial.review}" - ${testimonial.name}</p>
+                    <button onclick="editTestimonial(${testimonial.id})">Modifier</button>
+                    <button onclick="deleteTestimonial(${testimonial.id})">Supprimer</button>
+                `;
+                testimonialList.appendChild(testimonialElement);
+            });
+        }
+
+        // Fonction pour réinitialiser le formulaire
+        function resetForm() {
+            document.getElementById('reviewerName').value = '';
+            document.getElementById('reviewText').value = '';
+        }
+
+        // Fonction pour modifier un témoignage
+        function editTestimonial(id) {
+            const testimonial = testimonials.find(t => t.id === id);
+            if (testimonial) {
+                document.getElementById('reviewerName').value = testimonial.name;
+                document.getElementById('reviewText').value = testimonial.review;
+
+                // Remove the testimonial from the array
+                testimonials = testimonials.filter(t => t.id !== id);
+                renderTestimonials();
+            }
+        }
+
+        // Fonction pour supprimer un témoignage
+        function deleteTestimonial(id) {
+            testimonials = testimonials.filter(t => t.id !== id);
+            renderTestimonials();
+        }
+    </script>
+
+</body>
+
+</html>
